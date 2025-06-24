@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://beddernet.de
+
+# Sitemaps
+Sitemap: https://beddernet.de/sitemap.xml
