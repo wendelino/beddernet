@@ -17,13 +17,8 @@ import WidthWrapper from "../shared/width-wrapper";
 import AnimatedLogo from "../shared/animated-logo";
 import { ThemeButton } from "./theme-button";
 import { ShimmerButton } from "../shared/shimmer-button";
-
-const navLinks = [
-  { href: "/", label: "Home" },
-  { href: "/preise", label: "Preise" },
-  { href: "/kalender", label: "Kalender" },
-  { href: "/kontakt", label: "Kontakt" },
-];
+import { config } from "@/lib/config";
+ 
 
 export function NavBar() {
   const [isScrolled, setIsScrolled] = React.useState(false);
@@ -78,7 +73,7 @@ export function NavBar() {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex flex-1 items-center justify-center gap-10">
-            {navLinks.map((link) => (
+            {config.pages.map((link) => (
               <NavLink
                 key={link.href}
                 href={link.href}
@@ -107,7 +102,7 @@ export function NavBar() {
               <SheetContent side="right" className="w-[250px] sm:w-[300px]">
                 <nav className="flex flex-col gap-4 mt-8">
                 <ThemeButton />
-                  {navLinks.map((link) => (
+                  {config.pages.map((link) => (
                     <NavLink
                       key={link.href}
                       href={link.href}

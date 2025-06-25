@@ -89,12 +89,12 @@ export default function RootLayout({
       >
         <ThemeProvider
           attribute="class"
-          defaultTheme="system"
+          defaultTheme="light"
           enableSystem
           disableTransitionOnChange
         >
           <NavBar />
-          <main>{children}</main>
+          <main className="min-h-[20vh]">{children}</main>
           <Footer/>
         </ThemeProvider>
       </body>
