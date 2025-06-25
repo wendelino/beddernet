@@ -5,7 +5,7 @@ import WebsiteBenefits from "@/components/sections/website-benefits";
 
 export default function Home() {
   return (
-    <div className="flex flex-col gap-16">
+    <div className="flex flex-col gap-16"> 
       <HeroLanding />
       <WebsiteBenefits />
       <ResponsiveHero />

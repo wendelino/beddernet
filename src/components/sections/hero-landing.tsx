@@ -5,7 +5,7 @@ import AnimatedHero from "../blocks/hero";
 
 export default function Hero() {
   return (
-    <AnimatedHero id="home" className="min-h-[66vh]"
+    <AnimatedHero id="home" className="lg:min-h-[55vh]"
       title={
         <>
           Ihre digitale <span className="text-company-foreground">Präsenz</span> beginnt

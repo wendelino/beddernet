@@ -2,9 +2,11 @@ export const config = {
   logo: "/logo.png", // Placeholder for the logo path
   name: "BedderNet",
   url: "https://beddernet.de",
-  pages: [
-    { href: "/rundgang", label: "Rundgang" },
-    { href: "/#leistungen", label: "Leistungen" },
+  pages: [ 
+    { href: "/#leistungen", label: "Leistungen" }, 
+    { href: "/#preise", label: "Preise" },
+    { href: "/#faq", label: "FAQ" },
+    { href: "/kontakt", label: "Kontakt" },
   ],
   company: {
     owner: "Wendelin Beddermann",

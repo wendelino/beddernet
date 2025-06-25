@@ -1,5 +1,5 @@
 import Footer from "@/components/global/footer";
-import { NavbarDemo } from "@/components/global/res-navbar";
+import { Navbar } from "@/components/global/navbar";
 import { ThemeProvider } from "@/components/global/theme-provider";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
@@ -94,7 +94,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <NavbarDemo />
+          <Navbar />
           <main className="min-h-[20vh] pt-32">{children}</main>
           <Footer />
         </ThemeProvider>

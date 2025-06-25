@@ -9,6 +9,7 @@ import {
   useMotionValueEvent,
 } from "motion/react";
 import Image from "next/image";
+import Link from "next/link";
 
 import React, { useRef, useState } from "react";
 
@@ -51,7 +52,7 @@ interface MobileNavMenuProps {
 }
 
 export const Navbar = ({ children, className }: NavbarProps) => {
-  const ref = useRef<HTMLDivElement>(null);
+  const ref = useRef(null);
   const { scrollY } = useScroll({
     target: ref,
     offset: ["start start", "end start"],
@@ -67,7 +68,7 @@ export const Navbar = ({ children, className }: NavbarProps) => {
   });
 
   return (
-    <motion.div
+    <motion.nav
       ref={ref}
       className={cn("fixed inset-x-0 top-10 z-40 w-full", className)}
     >
@@ -79,7 +80,7 @@ export const Navbar = ({ children, className }: NavbarProps) => {
             )
           : child
       )}
-    </motion.div>
+    </motion.nav>
   );
 };
 
@@ -91,7 +92,7 @@ export const NavBody = ({ children, className, visible }: NavBodyProps) => {
         boxShadow: visible
           ? "0 0 24px rgba(34, 42, 53, 0.06), 0 1px 1px rgba(0, 0, 0, 0.05), 0 0 0 1px rgba(34, 42, 53, 0.04), 0 0 4px rgba(34, 42, 53, 0.08), 0 16px 68px rgba(47, 48, 55, 0.05), 0 1px 0 rgba(255, 255, 255, 0.1) inset"
           : "none",
-        width: visible ? "50%" : "100%",
+        width: visible ? "60%" : "100%",
         y: visible ? -20 : 0,
       }}
       transition={{
@@ -124,7 +125,7 @@ export const NavItems = ({ items, className, onItemClick }: NavItemsProps) => {
         <a
           onMouseEnter={() => setHovered(idx)}
           onClick={onItemClick}
-          className="relative px-4 py-2 text-neutral-600 dark:text-neutral-300"
+          className="relative px-4 py-2 text-muted-foreground"
           key={`link-${idx}`}
           href={item.link}
         >
@@ -148,8 +149,7 @@ export const MobileNav = ({ children, className, visible }: MobileNavProps) => {
         backdropFilter: visible ? "blur(10px)" : "none",
         boxShadow: visible
           ? "0 0 24px rgba(34, 42, 53, 0.06), 0 1px 1px rgba(0, 0, 0, 0.05), 0 0 0 1px rgba(34, 42, 53, 0.04), 0 0 4px rgba(34, 42, 53, 0.08), 0 16px 68px rgba(47, 48, 55, 0.05), 0 1px 0 rgba(255, 255, 255, 0.1) inset"
-          : "none",
-        width: visible ? "80%" : "100%",
+          : "none", 
         y: visible ? -20 : 0,
         paddingRight: visible ? "1rem" : "0.4rem",
         paddingLeft: visible ? "1rem" : "0.4rem",
@@ -160,7 +160,7 @@ export const MobileNav = ({ children, className, visible }: MobileNavProps) => {
         damping: 50,
       }}
       className={cn(
-        "relative z-[50] mx-auto bg-background/80 max-w-[calc(100vw-3rem)] rounded-lg flex w-full flex-col items-center justify-between     py-2 lg:hidden",
+        "relative z-[50] mx-auto bg-background/80 max-w-[calc(100vw-2rem)] rounded-lg flex w-full flex-col items-center justify-between     py-2 lg:hidden",
         className
       )}
     >
@@ -217,17 +217,17 @@ export const MobileNavToggle = ({
   onClick: () => void;
 }) => {
   return isOpen ? (
-    <IconX className="text-black dark:text-white" onClick={onClick} />
+    <IconX className="text-foreground" onClick={onClick} />
   ) : (
-    <IconMenu2 className="text-black dark:text-white" onClick={onClick} />
+    <IconMenu2 className="text-foreground" onClick={onClick} />
   );
 };
 
 export const NavbarLogo = () => {
   return (
-    <a
-      href="#"
-      className="relative z-20 mr-4 flex items-center space-x-2  py-1 text-sm font-normal text-black"
+    <Link
+      href="/#"
+      className="relative z-20 mr-4 flex items-center space-x-2  py-1 text-sm font-normal"
     >
       <Image
         src={config.logo}
@@ -236,10 +236,10 @@ export const NavbarLogo = () => {
         height={64}
         className=" size-8 object-cover border rounded-md"
       />
-      <span className="font-medium text-black dark:text-white">
+      <span className="font-medium text-foreground">
         {config.name}
       </span>
-    </a>
+    </Link>
   );
 };
 
@@ -261,15 +261,14 @@ export const NavbarButton = ({
   | React.ComponentPropsWithoutRef<"button">
 )) => {
   const baseStyles =
-    "px-4 py-2 rounded-md bg-white button bg-white text-black text-sm font-bold relative cursor-pointer hover:-translate-y-0.5 transition duration-200 inline-block text-center";
+    "px-4 py-2 flex items-center justify-center rounded-md bg-white button bg-white text-black text-sm font-bold relative cursor-pointer hover:-translate-y-0.5 transition duration-200   text-center";
 
   const variantStyles = {
-    primary:
-      "shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]",
+    primary: "bg-company-foreground text-white",
     secondary: "bg-transparent shadow-none dark:text-white",
     dark: "bg-black text-white shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]",
     gradient:
-      "bg-gradient-to-b from-blue-500 to-blue-700 text-white shadow-[0px_2px_0px_0px_rgba(255,255,255,0.3)_inset]",
+      "bg-gradient-to-br from-company-foreground to-purple-900 text-white",
   };
 
   return (
@@ -282,79 +281,4 @@ export const NavbarButton = ({
     </Tag>
   );
 };
-
-export function NavbarDemo() {
-  const navItems = [
-    {
-      name: "Features",
-      link: "#features",
-    },
-    {
-      name: "Pricing",
-      link: "#pricing",
-    },
-    {
-      name: "Contact",
-      link: "#contact",
-    },
-  ];
-
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-
-  return (
-    <Navbar>
-      {/* Desktop Navigation */}
-      <NavBody>
-        <NavbarLogo />
-        <NavItems items={navItems} />
-        <div className="flex items-center gap-4">
-          <NavbarButton variant="secondary">Login</NavbarButton>
-          <NavbarButton variant="primary">Book a call</NavbarButton>
-        </div>
-      </NavBody>
-
-      {/* Mobile Navigation */}
-      <MobileNav>
-        <MobileNavHeader>
-          <NavbarLogo />
-          <MobileNavToggle
-            isOpen={isMobileMenuOpen}
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          />
-        </MobileNavHeader>
-
-        <MobileNavMenu
-          isOpen={isMobileMenuOpen}
-          onClose={() => setIsMobileMenuOpen(false)}
-        >
-          {navItems.map((item, idx) => (
-            <a
-              key={`mobile-link-${idx}`}
-              href={item.link}
-              onClick={() => setIsMobileMenuOpen(false)}
-              className="relative text-neutral-600 dark:text-neutral-300"
-            >
-              <span className="block">{item.name}</span>
-            </a>
-          ))}
-          <div className="flex w-full flex-col gap-4">
-            <NavbarButton
-              onClick={() => setIsMobileMenuOpen(false)}
-              variant="primary"
-              className="w-full"
-            >
-              Login
-            </NavbarButton>
-            <NavbarButton
-              onClick={() => setIsMobileMenuOpen(false)}
-              variant="primary"
-              className="w-full"
-            >
-              Book a call
-            </NavbarButton>
-          </div>
-        </MobileNavMenu>
-      </MobileNav>
-    </Navbar>
-  );
-}
+ 
