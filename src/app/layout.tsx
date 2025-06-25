@@ -1,9 +1,9 @@
+import Footer from "@/components/global/footer";
+import { NavbarDemo } from "@/components/global/res-navbar";
+import { ThemeProvider } from "@/components/global/theme-provider";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import { ThemeProvider } from "@/components/global/theme-provider";
-import { NavBar } from "@/components/global/navbar";
-import Footer from "@/components/global/footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -23,6 +23,7 @@ export const metadata: Metadata = {
   description:
     "BedderNet ist Ihr Partner für Webentwicklung, IT-Dienstleistungen, Cloud-Lösungen und Beratung in Halle (Saale).",
   keywords: [
+    "Wendelin Beddermann",
     "Webentwicklung Halle Saale",
     "IT Dienstleistungen Halle",
     "IT Support Halle",
@@ -57,7 +58,7 @@ export const metadata: Metadata = {
     title: "BedderNet – Webentwicklung & IT Services in Halle (Saale)",
     description:
       "Ihr Ansprechpartner für Webdesign, IT-Infrastruktur und Support in Halle (Saale).",
-    images: ["/og-image.jpg"], 
+    images: ["/og-image.jpg"],
   },
   authors: [{ name: "BedderNet GmbH", url: "https://beddernet.de" }],
   creator: "BedderNet GmbH",
@@ -68,13 +69,13 @@ export const metadata: Metadata = {
     googleBot: {
       index: true,
       follow: true,
-      noimageindex: false,   
+      noimageindex: false,
     },
   },
   icons: {
     icon: "/favicon.ico",
-    shortcut: "/favicon.ico", 
-  }, 
+    shortcut: "/favicon.ico",
+  },
 };
 
 export default function RootLayout({
@@ -93,9 +94,9 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <NavBar />
-          <main className="min-h-[20vh]">{children}</main>
-          <Footer/>
+          <NavbarDemo />
+          <main className="min-h-[20vh] pt-32">{children}</main>
+          <Footer />
         </ThemeProvider>
       </body>
     </html>

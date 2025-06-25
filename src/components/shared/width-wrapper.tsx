@@ -14,7 +14,7 @@ export default function WidthWrapper({
   return (
     <div
       className={cn(
-        "px-8 mx-auto",
+        "px-6 mx-auto w-full",
         large ? "max-w-screen-2xl" : "max-w-screen-xl",
         className,
       )}
