@@ -12,14 +12,14 @@ export default function NotFound() {
       <div className="text-center space-y-8 max-w-2xl mx-auto px-4">
         {/* Large 404 Number */}
         <div className="relative">
-          <h1 className="text-[12rem] md:text-[16rem] font-bold text-muted-foreground/20 leading-none select-none">
+          <h1 className="text-8xl md:text-[16rem] font-bold text-muted-foreground/20 leading-none select-none">
             404
           </h1>
         </div>
 
         {/* Main Content */}
         <div className="space-y-4">
-          <h2 className="text-3xl md:text-4xl font-bold tracking-tight">
+          <h2 className="text-3xl md:text-5xl font-bold tracking-tight">
             Seite nicht gefunden :/
           </h2>
           <p className="text-lg text-muted-foreground max-w-md mx-auto">

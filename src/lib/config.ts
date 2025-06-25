@@ -1,5 +1,5 @@
 export const config = {
-  logo: "/logo.png", // Placeholder for the logo path
+  logo: "/logo_2048.png", // Placeholder for the logo path
   name: "BedderNet",
   url: "https://beddernet.de",
   pages: [ 
