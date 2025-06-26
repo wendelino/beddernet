@@ -8,18 +8,18 @@ import WidthWrapper from "@/components/shared/width-wrapper";
 
 export default function Home() {
   return (
-    <div className="flex flex-col gap-16">
+    <div className="flex flex-col gap-32"> 
       <HeroLanding />
       <WebsiteBenefits />
       <ResponsiveHero />
-      <FAQ/>
+      <FAQ />
       <WidthWrapper>
-       <Header
-  id="kontakt"
-  className="text-center mb-8"
-  title="Jetzt $Kontakt$ aufnehmen"
-  subtitle="Schnell, unverbindlich und persönlich – wir freuen uns auf Ihre Anfrage!"
-/>
+        <Header
+          id="kontakt"
+          className="text-center mb-8"
+          title="Jetzt $Kontakt$ aufnehmen"
+          subtitle="Schnell, unverbindlich und persönlich – wir freuen uns auf Ihre Anfrage!"
+        />
         <ContactForm />
       </WidthWrapper>
     </div>

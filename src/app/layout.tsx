@@ -96,7 +96,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <Navbar />
-          <main className="min-h-[20vh] pt-32 lg:pt-64">{children}</main>
+          <main className="min-h-[20vh] pt-32 lg:pt-48">{children}</main>
           <Footer />
         </ThemeProvider>
       </body>

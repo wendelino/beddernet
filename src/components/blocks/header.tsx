@@ -70,7 +70,7 @@ export const Header = ({
             className={cn(
               "inline-block mr-2 md:mr-3 last:mr-0",
               word.highlight && [
-                "bg-gradient-to-r from-company-foreground via-purple-600 to-purple-700",
+                "bg-gradient-to-r from-company-foreground  to-purple-700",
                 "bg-clip-text text-transparent",
                 // High contrast mode support
                 "forced-colors:text-[Highlight]",
