@@ -227,7 +227,7 @@ export const NavbarLogo = () => {
   return (
     <Link
       href="/#"
-      className="relative z-20 mr-2 flex items-center space-x-4 py-1 "
+      className="relative z-20 mr-2 flex items-center space-x-2 lg:py-1 "
     >
       <Image
         src={config.logo}
@@ -237,7 +237,7 @@ export const NavbarLogo = () => {
         className=" size-10 lg:size-12 object-cover border rounded-lg shadow-md"
       />
       <div className="flex flex-col -space-y-1">
-        <div className="font-bold text-lg  text-foreground">
+        <div className="font-bold  text-foreground">
           {config.name} 
         </div>
         <div className=" text-sm text-muted-foreground ">
