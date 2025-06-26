@@ -1,3 +1,5 @@
+import { Header } from "@/components/blocks/header";
+import FAQ from "@/components/sections/faq";
 import HeroLanding from "@/components/sections/hero-landing";
 import ResponsiveHero from "@/components/sections/responsive-hero";
 import WebsiteBenefits from "@/components/sections/website-benefits";
@@ -10,7 +12,14 @@ export default function Home() {
       <HeroLanding />
       <WebsiteBenefits />
       <ResponsiveHero />
+      <FAQ/>
       <WidthWrapper>
+       <Header
+  id="kontakt"
+  className="text-center mb-8"
+  title="Jetzt $Kontakt$ aufnehmen"
+  subtitle="Schnell, unverbindlich und persönlich – wir freuen uns auf Ihre Anfrage!"
+/>
         <ContactForm />
       </WidthWrapper>
     </div>

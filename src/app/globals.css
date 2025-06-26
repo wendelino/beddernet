@@ -50,6 +50,10 @@
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
 }
+html {
+  scroll-behavior: smooth;
+   
+}
 
 :root {
   --company: oklch(87% 0.065 274.039);
@@ -128,6 +132,7 @@
 @layer base {
   * {
     @apply border-border outline-ring/50;
+    scroll-margin-top: 6rem; 
   }
   body {
     @apply bg-background text-foreground;

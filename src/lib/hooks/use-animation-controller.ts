@@ -6,7 +6,7 @@ import { useEffect, useRef } from "react";
 export const useAnimationController = () => {
   const controls = useAnimation();
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-200px 0px 0px 0px" });
+  const isInView = useInView(ref, { once: true  });
 
   useEffect(() => {
     if (isInView) controls.start("visible");
@@ -29,8 +29,7 @@ export const useAnimationController = () => {
 
   const transition = {
     default: {
-      duration: 0.6,
-      delay: 0.1,
+      duration: 0.6, 
       ease: "easeOut",
     },
     long: {

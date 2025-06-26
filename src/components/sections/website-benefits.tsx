@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import { Search, TrendingUp, Users } from "lucide-react";
 import { Header } from "../blocks/header";
 import WidthWrapper from "../shared/width-wrapper";
-import AnimatedArrow from "./arrow";
+import AnimatedArrow from "../shared/animated-arrow";
 import BentoGrid from "./bentogrid";
 
 export default function WebsiteBenefits() {

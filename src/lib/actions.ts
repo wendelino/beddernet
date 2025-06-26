@@ -1,4 +1,5 @@
 "use server";
+import { format } from "date-fns";
 
 export async function handleMessage(data: {
   message: string;
@@ -21,26 +22,24 @@ export async function handleMessage(data: {
     // Kontaktinformationen formatieren
     const contactInfo = [];
     if (data.email) {
-      contactInfo.push(`📧 E-Mail: ${data.email}`);
+      contactInfo.push(`E-Mail: ${data.email}`);
     }
     if (data.phone) {
-      contactInfo.push(`📞 Telefon: ${data.phone}`);
+      contactInfo.push(`Telefon: ${data.phone}`);
     }
 
     // Telegram-Nachricht formatieren
     const telegramMessage = `
-🆕 *Neue Kontaktanfrage*
+🆘 *Neue Kontaktanfrage* 🆘
 
-👤 *Name:* ${data.first_name} ${data.last_name}
+*Name:* ${data.first_name} ${data.last_name}
 
 ${contactInfo.join("\n")}
 
-💬 *Nachricht:*
+*Nachricht:*
 ${data.message}
 
-
-📅 *Zeitstempel:* ${new Date().toLocaleString("de-DE")}
-    `.trim();
+*T:* ${format(new Date(), "dd.MM.yyyy - HH:mm")}`.trim();
 
     // Nachricht an Telegram senden
     const response = await fetch(

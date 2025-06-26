@@ -21,7 +21,6 @@ import {
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { handleMessage } from "@/lib/actions";
-import { LOG } from "@/lib/utils";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { CheckCircle, XCircle } from "lucide-react";
 import Link from "next/link";
@@ -109,23 +108,13 @@ export function ContactForm() {
   async function onSubmit(data: z.infer<typeof FormSchema>) {
     setLoading(true);
     setError(false);
-
-    try {
-      // Simulate API call
-      const { success } = await handleMessage(data);
-
-      // Simulate success (change to false to test error state)
-      if (success) {
-        setFormSubmitted(true);
-      } else {
-        setError(true);
-      }
-    } catch (err) {
-      LOG("Error sending contact form: " + err, "error");
+    const { success } = await handleMessage(data);
+    if (success) {
+      setFormSubmitted(true);
+    } else {
       setError(true);
-    } finally {
-      setLoading(false);
-    }
+    } 
+    setLoading(false);
   }
 
   if (formSubmitted) return <SuccessForm />;

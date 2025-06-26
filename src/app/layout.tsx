@@ -73,9 +73,10 @@ export const metadata: Metadata = {
     },
   },
   icons: {
-    icon: "/favicon.ico",
-    shortcut: "/favicon.ico",
-  },
+    icon: '/favicon.ico',
+    shortcut: '/favicon.ico',
+    apple: '/apple-icon.png',
+  }
 };
 
 export default function RootLayout({
@@ -95,7 +96,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <Navbar />
-          <main className="min-h-[20vh] pt-32">{children}</main>
+          <main className="min-h-[20vh] pt-32 lg:pt-64">{children}</main>
           <Footer />
         </ThemeProvider>
       </body>
