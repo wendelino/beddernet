@@ -90,7 +90,7 @@ export default function DeviceAnimation() {
           height: "150px",
           marginLeft: "-120px",
           marginTop: "-75px",
-          animation: "dot1_ 6s cubic-bezier(0.55, 0.3, 0.24, 0.99) infinite",
+          animation: "dot1_ 4s cubic-bezier(0.55, 0.3, 0.24, 0.99) infinite",
         }}
       />
 
@@ -102,7 +102,7 @@ export default function DeviceAnimation() {
           height: "135px",
           marginLeft: "-112.5px",
           marginTop: "-67.5px",
-          animation: "dot2_ 6s cubic-bezier(0.55, 0.3, 0.24, 0.99) infinite",
+          animation: "dot2_ 4s cubic-bezier(0.55, 0.3, 0.24, 0.99) infinite",
         }}
       >
         <div className="bg-company-foreground/20 rounded-sm" />
@@ -118,7 +118,7 @@ export default function DeviceAnimation() {
           height: "30px",
           marginLeft: "-30px",
           marginTop: "75px",
-          animation: "dot3_ 6s cubic-bezier(0.55, 0.3, 0.24, 0.99) infinite",
+          animation: "dot3_ 4s cubic-bezier(0.55, 0.3, 0.24, 0.99) infinite",
         }}
       />
     </div>

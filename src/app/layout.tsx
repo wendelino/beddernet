@@ -17,7 +17,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "BedderNet – Webentwicklung & IT-Service",
+    default: "BedderNet | Web-Dienstleistungen",
     template: "%s | BedderNet",
   },
   description:
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
   ],
   metadataBase: new URL("https://beddernet.de"),
   openGraph: {
-    title: "BedderNet – Webentwicklung & IT-Dienstleistungen in Halle (Saale)",
+    title: "BedderNet | Web-Dienstleistungen",
     description:
       "Moderne Webentwicklung, IT Support und Netzwerklösungen aus Halle (Saale) für Unternehmen in Sachsen-Anhalt und deutschlandweit.",
     url: "https://beddernet.de",
@@ -49,13 +49,13 @@ export const metadata: Metadata = {
         url: "/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "BedderNet – Webentwicklung in Halle Saale",
+        alt: "BedderNet | Web-Dienstleistungen"
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "BedderNet – Webentwicklung & IT Services in Halle (Saale)",
+    title: "BedderNet – Web-Dienstleistungen in Halle (Saale)",
     description:
       "Ihr Ansprechpartner für Webdesign, IT-Infrastruktur und Support in Halle (Saale).",
     images: ["/og-image.jpg"],

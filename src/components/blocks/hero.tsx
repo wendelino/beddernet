@@ -112,7 +112,7 @@ export default function AnimatedHero({
               variants={containerVariants}
               initial="hidden"
               animate="visible"
-              className="text-xl text-muted-foreground leading-relaxed"
+              className="lg:text-lg  text-muted-foreground leading-relaxed"
             >
               {titleChars.map(({ char, index }) => (
                 <motion.span

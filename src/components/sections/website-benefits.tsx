@@ -71,7 +71,7 @@ export default function WebsiteBenefits() {
               }}
               className="h-full"
             >
-              <Card className="h-full bg-white/90 backdrop-blur-sm border-0 shadow-lg hover:shadow-xl transition-all duration-300">
+              <Card className="h-full bg-white/90 backdrop-blur-sm border-company-foreground shadow-lg hover:shadow-xl transition-all duration-300">
                 <CardHeader className="text-center pb-3">
                   <motion.div
                     className={`w-12 h-12 mx-auto mb-3 shadow-md rounded-full bg-gradient-to-br from-company to-company-foreground flex items-center justify-center`}
