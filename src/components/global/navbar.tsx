@@ -18,7 +18,7 @@ import {
 import { ArrowUpRight } from "lucide-react";
 
 export function Navbar() {
-  const navItems = config.pages.map((page) => ({
+  const navItems = config.pages_links.map((page) => ({
     name: page.label,
     link: page.href,
   }));

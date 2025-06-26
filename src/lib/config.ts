@@ -2,7 +2,7 @@ export const config = {
   logo: "/logo_2048.png", // Placeholder for the logo path
   name: "BedderNet",
   url: "https://beddernet.de",
-  pages: [ 
+  pages_links: [ 
     { href: "/#leistungen", label: "Leistungen" }, 
     { href: "/#preise", label: "Preise" },
     { href: "/#faq", label: "FAQ" },

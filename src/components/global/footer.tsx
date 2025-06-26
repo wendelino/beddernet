@@ -3,7 +3,7 @@ import WidthWrapper from "../shared/width-wrapper";
 import Image from "next/image";
 
 export default function Footer() {
-  const { company, pages } = config;
+  const { company, pages_links } = config;
   return (
     <footer className="bg-company-foreground text-white mt-16">
       <WidthWrapper className="py-12">
@@ -25,7 +25,7 @@ export default function Footer() {
           <div>
             <h3 className="text-lg font-bold mb-4">Navigation</h3>
             <ul className="space-y-2 text-company">
-              {pages.map((page) => (
+              {pages_links.map((page) => (
                 <li key={page.label}>
                   <a
                     href={page.href}

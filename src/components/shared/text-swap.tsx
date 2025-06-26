@@ -25,30 +25,30 @@ export const TextSwap = ({
   }, [words.length, interval]);
 
   return (
-    <div className={cn("text-3xl lg:text-5xl font-bold", className)}>
-      {" "}
-      <span className="font-bold  bg-gradient-to-r from-company-foreground  to-purple-700 bg-clip-text text-transparent">
-        B
-      </span>
-      edderNet -{" "}
-      <span className="font-bold  bg-gradient-to-r from-company-foreground  to-purple-700 bg-clip-text text-transparent">
-        B
-      </span>
-      <AnimatePresence mode="wait">
-        <motion.span
-          key={currentIndex}
-          initial={{ opacity: 0, y: -14, filter: "blur(10px)" }}
-          animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-          exit={{ opacity: 0, y: 24, filter: "blur(10px)" }}
-          transition={{
-            duration: 0.25,
-            ease: "easeInOut",
-          }}
-          className="inline-block"
-        >
-          {words[currentIndex]}
-        </motion.span>
-      </AnimatePresence>
+    <div className={cn("text-4xl lg:text-6xl font-bold", className)}>
+      <div>
+        <span className="  text-company-foreground">B</span>
+        edderNet
+      </div>
+
+      <div>
+        <span className="text-company-foreground">B</span>
+        <AnimatePresence mode="wait">
+          <motion.span
+            key={currentIndex}
+            initial={{ opacity: 0, y: -14, filter: "blur(10px)" }}
+            animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+            exit={{ opacity: 0, y: 24, filter: "blur(10px)" }}
+            transition={{
+              duration: 0.25,
+              ease: "easeInOut",
+            }}
+            className="inline-block"
+          >
+            {words[currentIndex]}
+          </motion.span>
+        </AnimatePresence>
+      </div>
     </div>
   );
 };
