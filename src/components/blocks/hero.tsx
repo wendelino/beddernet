@@ -89,7 +89,7 @@ export default function AnimatedHero({
       <WidthWrapper>
         <div
           className={cn(
-            `flex lg:grid ${contentOrder} flex-wrap-reverse w-full  gap-16 items-center min-h-[50vh]`,
+            `flex lg:grid ${contentOrder} flex-wrap-reverse w-full   gap-16 items-center  `,
             className
           )}
         >

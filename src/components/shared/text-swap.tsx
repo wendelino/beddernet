@@ -25,7 +25,7 @@ export const TextSwap = ({
   }, [words.length, interval]);
 
   return (
-    <div className={cn("text-4xl lg:text-6xl font-bold", className)}>
+    <div className={cn("text-3xl sm:text-4xl lg:text-6xl font-bold ", className)}>
       <div>
         <span className="  text-company-foreground">B</span>
         edderNet

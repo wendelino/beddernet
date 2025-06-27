@@ -46,7 +46,7 @@ export default function Hero() {
             alt="Logo"
             width={256}
             height={256}
-            className=" size-48 lg:size-64 object-cover mx-auto border rounded-2xl shadow-2xl"
+            className="size-32 md:size-48 xl:size-64 object-cover mx-auto border rounded-2xl shadow-2xl"
           />
         </AnimatedHero>
       </GridBackground>
