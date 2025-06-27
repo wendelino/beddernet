@@ -1,4 +1,4 @@
-import { config } from "@/lib/config";
+import { siteConfig as config } from "@/lib/siteConfig";
 import WidthWrapper from "../shared/width-wrapper";
 import Image from "next/image";
 

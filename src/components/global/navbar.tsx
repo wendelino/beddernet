@@ -2,7 +2,7 @@
 
 import * as React from "react";
 
-import { config } from "@/lib/config";
+import { siteConfig as config } from "@/lib/siteConfig";
 
 import {
   MobileNav,

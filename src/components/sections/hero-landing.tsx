@@ -1,8 +1,10 @@
 "use client";
 
+import Image from "next/image";
 import AnimatedHero from "../blocks/hero";
 import { GridBackground } from "../shared/grid-background";
 import { TextSwap } from "../shared/text-swap";
+import { siteConfig } from "@/lib/siteConfig";
 
 export default function Hero() {
   return (
@@ -10,7 +12,6 @@ export default function Hero() {
       <GridBackground>
         <AnimatedHero
           id="home"
-          className="lg:min-h-[55vh]"
           title={
             <TextSwap
               words={[
@@ -30,16 +31,23 @@ export default function Hero() {
             {
               label: "Projekt starten",
               variant: "default",
-              href: "#contact",
+              href: "/anfrage",
             },
             {
-              label: "Portfolio ansehen",
+              label: "Leistungen ansehen",
               variant: "outline",
-              href: "/portfolio",
+              href: "#leistungen",
             },
           ]}
-          direction="ltr"
-        > 
+          direction="rtl"
+        >
+          <Image
+            src={siteConfig.logo}
+            alt="Logo"
+            width={256}
+            height={256}
+            className=" size-48 lg:size-64 object-cover mx-auto border rounded-2xl shadow-2xl"
+          />
         </AnimatedHero>
       </GridBackground>
     </section>

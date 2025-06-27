@@ -1,9 +1,10 @@
 "use client";
+import { siteConfig as config } from "@/lib/siteConfig";
 import { cn } from "@/lib/utils";
 import { ChartArea, Mail, Package, Workflow } from "lucide-react";
+import Image from "next/image";
 import { forwardRef, ReactNode, useRef } from "react";
 import { AnimatedBeam } from "../shared/animated-beam";
-import AnimatedLogo from "../shared/animated-logo";
 import { Safari } from "../shared/device-layouts/safari";
 
 export default function BentoGrid() {
@@ -247,7 +248,7 @@ const Circle = forwardRef<
       <div
         ref={ref}
         className={cn(
-          "z-10 flex size-12 items-center justify-center rounded-full border-2 bg-background p-3 shadow-[0_0_20px_-12px_rgba(0,0,0,0.8)]",
+          "z-10 flex size-12 items-center justify-center rounded-full border-2 bg-background  shadow-[0_0_20px_-12px_rgba(0,0,0,0.8)]",
           className
         )}
       >
@@ -272,7 +273,19 @@ export function AnimatedBeamDemo() {
       className="relative flex   w-full items-center justify-between    "
       ref={containerRef}
     >
-      <Circle ref={div1Ref} className="size-20" icon={<AnimatedLogo />} />
+      <Circle
+        ref={div1Ref}
+        className="size-20"
+        icon={
+          <Image
+            src={config.logo}
+            alt="Logo"
+            width={64}
+            height={64}
+            className=" rounded-full"
+          />
+        }
+      />
       <div className="flex flex-col gap-8 justify-center ">
         <Circle ref={div2Ref} icon={<Package />} label="CRM, CMS, ERP" />
         <Circle ref={div3Ref} icon={<Workflow />} label="REST-APIs" />

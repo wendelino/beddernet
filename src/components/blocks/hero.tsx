@@ -89,7 +89,7 @@ export default function AnimatedHero({
       <WidthWrapper>
         <div
           className={cn(
-            `grid ${contentOrder} gap-16 items-center min-h-[50vh]`,
+            `flex lg:grid ${contentOrder} flex-wrap-reverse w-full  gap-16 items-center min-h-[50vh]`,
             className
           )}
         >
@@ -163,7 +163,7 @@ export default function AnimatedHero({
               initial={imageAnimation}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className={`relative ${imageOrder}`}
+              className={`relative w-full ${imageOrder}`}
             >
               {children}
             </motion.div>

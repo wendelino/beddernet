@@ -1,4 +1,4 @@
-export const config = {
+export const siteConfig = {
   logo: "/logo_2048.png", // Placeholder for the logo path
   name: "BedderNet",
   url: "https://beddernet.de",
@@ -18,6 +18,6 @@ export const config = {
     ust: "DE 453166980",
   },
   footer: {
-    text: "Wir bieten individuelle IT-Lösungen und Webentwicklung für Unternehmen und Privatkunden an. Unsere Dienstleistungen umfassen Webdesign, App-Entwicklung, IT-Beratung und vieles mehr. Kontaktieren Sie uns für maßgeschneiderte Lösungen, die auf Ihre Bedürfnisse zugeschnitten sind.",
+    text: "Individuelle IT-Lösungen und Webentwicklung für Unternehmen und Privatkunden.",
   },
 };

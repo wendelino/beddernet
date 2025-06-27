@@ -10,7 +10,7 @@ export default function WidthWrapper({
   children: ReactNode;
 }) {
   return (
-    <div className={cn("px-6  mx-auto w-full max-w-screen-xl", className)}>
+    <div className={cn("px-6 md:px-16 xl:px-6  mx-auto w-full max-w-screen-xl", className)}>
       {children}
     </div>
   );
