@@ -49,7 +49,7 @@ export const metadata: Metadata = {
         url: "/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "BedderNet | Web-Dienstleistungen"
+        alt: "BedderNet | Web-Dienstleistungen",
       },
     ],
   },
@@ -73,10 +73,10 @@ export const metadata: Metadata = {
     },
   },
   icons: {
-    icon: '/favicon.ico',
-    shortcut: '/favicon.ico',
-    apple: '/apple-icon.png',
-  }
+    icon: "/favicon.ico",
+    shortcut: "/favicon.ico",
+    apple: "/apple-icon.png",
+  },
 };
 
 export default function RootLayout({
@@ -86,6 +86,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="de" suppressHydrationWarning>
+      <head>
+        <script
+          defer
+          src="https://umami.prod1.lnio.de/script.js"
+          data-website-id="5e0542db-934f-4baa-955f-b1da287e77b7"
+        />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >

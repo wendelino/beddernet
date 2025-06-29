@@ -1,36 +1,52 @@
-"use client"
+"use client";
 
-import type React from "react"
+import type React from "react";
 
-import { useState } from "react"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
-import { Textarea } from "@/components/ui/textarea"
-import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
-import { Checkbox } from "@/components/ui/checkbox"
-import { Progress } from "@/components/ui/progress"
-import { ArrowLeft, ArrowRight, CheckCircle, Globe, ShoppingCart, Lightbulb, Building, User, Users } from "lucide-react"
+import { useState } from "react";
+import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Textarea } from "@/components/ui/textarea";
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+import { Checkbox } from "@/components/ui/checkbox";
+import { Progress } from "@/components/ui/progress";
+import {
+  ArrowLeft,
+  ArrowRight,
+  CheckCircle,
+  Globe,
+  ShoppingCart,
+  Lightbulb,
+  Building,
+  User,
+  Users,
+} from "lucide-react";
 
 interface FormData {
-  projectType: string
-  websiteStatus: string
-  businessStatus: string
-  projectSize: string
-  maintenance: string
-  timeline: string
-  budget: string
-  features: string[]
-  name: string
-  email: string
-  phone: string
-  company: string
-  message: string
+  projectType: string;
+  websiteStatus: string;
+  businessStatus: string;
+  projectSize: string;
+  maintenance: string;
+  timeline: string;
+  budget: string;
+  features: string[];
+  name: string;
+  email: string;
+  phone: string;
+  company: string;
+  message: string;
 }
 
 export default function Fragebogen() {
-  const [currentStep, setCurrentStep] = useState(1)
+  const [currentStep, setCurrentStep] = useState(1);
   const [formData, setFormData] = useState<FormData>({
     projectType: "",
     websiteStatus: "",
@@ -45,47 +61,47 @@ export default function Fragebogen() {
     phone: "",
     company: "",
     message: "",
-  })
+  });
 
-  const totalSteps = 7
-  const progress = (currentStep / totalSteps) * 100
+  const totalSteps = 7;
+  const progress = (currentStep / totalSteps) * 100;
 
   const handleNext = () => {
     if (currentStep < totalSteps) {
-      setCurrentStep(currentStep + 1)
+      setCurrentStep(currentStep + 1);
     }
-  }
+  };
 
   const handlePrevious = () => {
     if (currentStep > 1) {
-      setCurrentStep(currentStep - 1)
+      setCurrentStep(currentStep - 1);
     }
-  }
+  };
 
   const handleSkip = () => {
-    handleNext()
-  }
+    handleNext();
+  };
 
   const handleFeatureChange = (feature: string, checked: boolean) => {
     if (checked) {
       setFormData((prev) => ({
         ...prev,
         features: [...prev.features, feature],
-      }))
+      }));
     } else {
       setFormData((prev) => ({
         ...prev,
         features: prev.features.filter((f) => f !== feature),
-      }))
+      }));
     }
-  }
+  };
 
   const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    console.log("Form submitted:", formData)
+    e.preventDefault();
+    console.log("Form submitted:", formData);
     // Hier würden Sie die Daten an Ihr Backend senden
-    alert("Vielen Dank für Ihre Anfrage! Wir melden uns in Kürze bei Ihnen.")
-  }
+    alert("Vielen Dank für Ihre Anfrage! Wir melden uns in Kürze bei Ihnen.");
+  };
 
   const renderStep = () => {
     switch (currentStep) {
@@ -95,22 +111,30 @@ export default function Fragebogen() {
             <div className="text-center space-y-2">
               <h2 className="text-2xl font-bold">Wählen Sie Ihre Projektart</h2>
               <p className="text-muted-foreground">
-                Um Ihnen ein passendes Angebot zu erstellen, benötigen wir einige Informationen
+                Um Ihnen ein passendes Angebot zu erstellen, benötigen wir
+                einige Informationen
               </p>
             </div>
             <RadioGroup
               value={formData.projectType}
-              onValueChange={(value: string) => setFormData((prev) => ({ ...prev, projectType: value }))}
+              onValueChange={(value: string) =>
+                setFormData((prev) => ({ ...prev, projectType: value }))
+              }
               className="space-y-4"
             >
               <div className="flex items-center space-x-3 p-4 border rounded-lg hover:bg-muted/50 cursor-pointer">
                 <RadioGroupItem value="website" id="website" />
                 <Globe className="h-5 w-5 text-blue-600" />
                 <div>
-                  <Label htmlFor="website" className="font-medium cursor-pointer">
+                  <Label
+                    htmlFor="website"
+                    className="font-medium cursor-pointer"
+                  >
                     Website / Unternehmensseite
                   </Label>
-                  <p className="text-sm text-muted-foreground">Präsentationswebsite, Portfolio, Firmenauftritt</p>
+                  <p className="text-sm text-muted-foreground">
+                    Präsentationswebsite, Portfolio, Firmenauftritt
+                  </p>
                 </div>
               </div>
               <div className="flex items-center space-x-3 p-4 border rounded-lg hover:bg-muted/50 cursor-pointer">
@@ -120,7 +144,9 @@ export default function Fragebogen() {
                   <Label htmlFor="shop" className="font-medium cursor-pointer">
                     Online Shop / E-Commerce
                   </Label>
-                  <p className="text-sm text-muted-foreground">Verkaufsplattform, Produktkatalog, Zahlungsabwicklung</p>
+                  <p className="text-sm text-muted-foreground">
+                    Verkaufsplattform, Produktkatalog, Zahlungsabwicklung
+                  </p>
                 </div>
               </div>
               <div className="flex items-center space-x-3 p-4 border rounded-lg hover:bg-muted/50 cursor-pointer">
@@ -130,23 +156,29 @@ export default function Fragebogen() {
                   <Label htmlFor="other" className="font-medium cursor-pointer">
                     Web-Anwendung / Sonstiges
                   </Label>
-                  <p className="text-sm text-muted-foreground">Kundenportal, Buchungssystem, individuelle Lösung</p>
+                  <p className="text-sm text-muted-foreground">
+                    Kundenportal, Buchungssystem, individuelle Lösung
+                  </p>
                 </div>
               </div>
             </RadioGroup>
           </div>
-        )
+        );
 
       case 2:
         return (
           <div className="space-y-6">
             <div className="text-center space-y-2">
               <h2 className="text-2xl font-bold">Ihr aktueller Status</h2>
-              <p className="text-muted-foreground">Haben Sie bereits eine Website oder starten Sie komplett neu?</p>
+              <p className="text-muted-foreground">
+                Haben Sie bereits eine Website oder starten Sie komplett neu?
+              </p>
             </div>
             <RadioGroup
               value={formData.websiteStatus}
-              onValueChange={(value) => setFormData((prev) => ({ ...prev, websiteStatus: value }))}
+              onValueChange={(value) =>
+                setFormData((prev) => ({ ...prev, websiteStatus: value }))
+              }
               className="space-y-4"
             >
               <div className="flex items-center space-x-3 p-4 border rounded-lg hover:bg-muted/50 cursor-pointer">
@@ -155,13 +187,18 @@ export default function Fragebogen() {
                   <Label htmlFor="new" className="font-medium cursor-pointer">
                     Ich starte komplett neu
                   </Label>
-                  <p className="text-sm text-muted-foreground">Noch keine Website vorhanden</p>
+                  <p className="text-sm text-muted-foreground">
+                    Noch keine Website vorhanden
+                  </p>
                 </div>
               </div>
               <div className="flex items-center space-x-3 p-4 border rounded-lg hover:bg-muted/50 cursor-pointer">
                 <RadioGroupItem value="existing" id="existing" />
                 <div>
-                  <Label htmlFor="existing" className="font-medium cursor-pointer">
+                  <Label
+                    htmlFor="existing"
+                    className="font-medium cursor-pointer"
+                  >
                     Website ist bereits vorhanden
                   </Label>
                   <p className="text-sm text-muted-foreground">
@@ -172,81 +209,114 @@ export default function Fragebogen() {
               <div className="flex items-center space-x-3 p-4 border rounded-lg hover:bg-muted/50 cursor-pointer">
                 <RadioGroupItem value="domain" id="domain" />
                 <div>
-                  <Label htmlFor="domain" className="font-medium cursor-pointer">
+                  <Label
+                    htmlFor="domain"
+                    className="font-medium cursor-pointer"
+                  >
                     Nur Domain vorhanden
                   </Label>
-                  <p className="text-sm text-muted-foreground">Domain registriert, aber noch keine Website erstellt</p>
+                  <p className="text-sm text-muted-foreground">
+                    Domain registriert, aber noch keine Website erstellt
+                  </p>
                 </div>
               </div>
             </RadioGroup>
           </div>
-        )
+        );
 
       case 3:
         return (
           <div className="space-y-6">
             <div className="text-center space-y-2">
               <h2 className="text-2xl font-bold">Ihr Unternehmenstyp</h2>
-              <p className="text-muted-foreground">Welcher Status trifft auf Sie zu?</p>
+              <p className="text-muted-foreground">
+                Welcher Status trifft auf Sie zu?
+              </p>
             </div>
             <RadioGroup
               value={formData.businessStatus}
-              onValueChange={(value) => setFormData((prev) => ({ ...prev, businessStatus: value }))}
+              onValueChange={(value) =>
+                setFormData((prev) => ({ ...prev, businessStatus: value }))
+              }
               className="space-y-4"
             >
               <div className="flex items-center space-x-3 p-4 border rounded-lg hover:bg-muted/50 cursor-pointer">
                 <RadioGroupItem value="company" id="company" />
                 <Building className="h-5 w-5 text-blue-600" />
                 <div>
-                  <Label htmlFor="company" className="font-medium cursor-pointer">
+                  <Label
+                    htmlFor="company"
+                    className="font-medium cursor-pointer"
+                  >
                     Etabliertes Unternehmen
                   </Label>
-                  <p className="text-sm text-muted-foreground">GmbH, AG, eingetragene Firma</p>
+                  <p className="text-sm text-muted-foreground">
+                    GmbH, AG, eingetragene Firma
+                  </p>
                 </div>
               </div>
               <div className="flex items-center space-x-3 p-4 border rounded-lg hover:bg-muted/50 cursor-pointer">
                 <RadioGroupItem value="freelancer" id="freelancer" />
                 <User className="h-5 w-5 text-green-600" />
                 <div>
-                  <Label htmlFor="freelancer" className="font-medium cursor-pointer">
+                  <Label
+                    htmlFor="freelancer"
+                    className="font-medium cursor-pointer"
+                  >
                     Selbstständig / Freiberufler
                   </Label>
-                  <p className="text-sm text-muted-foreground">Einzelunternehmer, Freiberufler</p>
+                  <p className="text-sm text-muted-foreground">
+                    Einzelunternehmer, Freiberufler
+                  </p>
                 </div>
               </div>
               <div className="flex items-center space-x-3 p-4 border rounded-lg hover:bg-muted/50 cursor-pointer">
                 <RadioGroupItem value="sidebusiness" id="sidebusiness" />
                 <div>
-                  <Label htmlFor="sidebusiness" className="font-medium cursor-pointer">
+                  <Label
+                    htmlFor="sidebusiness"
+                    className="font-medium cursor-pointer"
+                  >
                     Nebengewerbe / Startup
                   </Label>
-                  <p className="text-sm text-muted-foreground">Nebentätigkeit, junges Unternehmen</p>
+                  <p className="text-sm text-muted-foreground">
+                    Nebentätigkeit, junges Unternehmen
+                  </p>
                 </div>
               </div>
               <div className="flex items-center space-x-3 p-4 border rounded-lg hover:bg-muted/50 cursor-pointer">
                 <RadioGroupItem value="private" id="private" />
                 <Users className="h-5 w-5 text-purple-600" />
                 <div>
-                  <Label htmlFor="private" className="font-medium cursor-pointer">
+                  <Label
+                    htmlFor="private"
+                    className="font-medium cursor-pointer"
+                  >
                     Privat / Verein / Non-Profit
                   </Label>
-                  <p className="text-sm text-muted-foreground">Privatperson, Verein, gemeinnützige Organisation</p>
+                  <p className="text-sm text-muted-foreground">
+                    Privatperson, Verein, gemeinnützige Organisation
+                  </p>
                 </div>
               </div>
             </RadioGroup>
           </div>
-        )
+        );
 
       case 4:
         return (
           <div className="space-y-6">
             <div className="text-center space-y-2">
               <h2 className="text-2xl font-bold">Projektumfang</h2>
-              <p className="text-muted-foreground">Wie umfangreich soll Ihr Projekt werden?</p>
+              <p className="text-muted-foreground">
+                Wie umfangreich soll Ihr Projekt werden?
+              </p>
             </div>
             <RadioGroup
               value={formData.projectSize}
-              onValueChange={(value) => setFormData((prev) => ({ ...prev, projectSize: value }))}
+              onValueChange={(value) =>
+                setFormData((prev) => ({ ...prev, projectSize: value }))
+              }
               className="space-y-4"
             >
               <div className="flex items-center space-x-3 p-4 border rounded-lg hover:bg-muted/50 cursor-pointer">
@@ -255,16 +325,23 @@ export default function Fragebogen() {
                   <Label htmlFor="small" className="font-medium cursor-pointer">
                     Kompakt (1-5 Seiten)
                   </Label>
-                  <p className="text-sm text-muted-foreground">Landing Page, einfache Firmenwebsite, Portfolio</p>
+                  <p className="text-sm text-muted-foreground">
+                    Landing Page, einfache Firmenwebsite, Portfolio
+                  </p>
                 </div>
               </div>
               <div className="flex items-center space-x-3 p-4 border rounded-lg hover:bg-muted/50 cursor-pointer">
                 <RadioGroupItem value="medium" id="medium" />
                 <div>
-                  <Label htmlFor="medium" className="font-medium cursor-pointer">
+                  <Label
+                    htmlFor="medium"
+                    className="font-medium cursor-pointer"
+                  >
                     Standard (6-15 Seiten)
                   </Label>
-                  <p className="text-sm text-muted-foreground">Umfangreiche Unternehmensseite, kleiner Shop</p>
+                  <p className="text-sm text-muted-foreground">
+                    Umfangreiche Unternehmensseite, kleiner Shop
+                  </p>
                 </div>
               </div>
               <div className="flex items-center space-x-3 p-4 border rounded-lg hover:bg-muted/50 cursor-pointer">
@@ -273,19 +350,24 @@ export default function Fragebogen() {
                   <Label htmlFor="large" className="font-medium cursor-pointer">
                     Umfangreich (15+ Seiten)
                   </Label>
-                  <p className="text-sm text-muted-foreground">Großer Online-Shop, komplexe Web-Anwendung</p>
+                  <p className="text-sm text-muted-foreground">
+                    Großer Online-Shop, komplexe Web-Anwendung
+                  </p>
                 </div>
               </div>
             </RadioGroup>
           </div>
-        )
+        );
 
       case 5:
         return (
           <div className="space-y-6">
             <div className="text-center space-y-2">
               <h2 className="text-2xl font-bold">Gewünschte Features</h2>
-              <p className="text-muted-foreground">Welche Funktionen sind für Sie wichtig? (Mehrfachauswahl möglich)</p>
+              <p className="text-muted-foreground">
+                Welche Funktionen sind für Sie wichtig? (Mehrfachauswahl
+                möglich)
+              </p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {[
@@ -302,11 +384,16 @@ export default function Fragebogen() {
                 "Online-Shop Funktionen",
                 "Mitgliederbereich/Login",
               ].map((feature) => (
-                <div key={feature} className="flex items-center space-x-2 p-3 border rounded-lg">
+                <div
+                  key={feature}
+                  className="flex items-center space-x-2 p-3 border rounded-lg"
+                >
                   <Checkbox
                     id={feature}
                     checked={formData.features.includes(feature)}
-                    onCheckedChange={(checked) => handleFeatureChange(feature, checked as boolean)}
+                    onCheckedChange={(checked) =>
+                      handleFeatureChange(feature, checked as boolean)
+                    }
                   />
                   <Label htmlFor={feature} className="text-sm cursor-pointer">
                     {feature}
@@ -315,7 +402,7 @@ export default function Fragebogen() {
               ))}
             </div>
           </div>
-        )
+        );
 
       case 6:
         return (
@@ -323,15 +410,20 @@ export default function Fragebogen() {
             <div className="text-center space-y-2">
               <h2 className="text-2xl font-bold">Timeline & Budget</h2>
               <p className="text-muted-foreground">
-                Wann soll das Projekt fertig sein und welches Budget haben Sie eingeplant?
+                Wann soll das Projekt fertig sein und welches Budget haben Sie
+                eingeplant?
               </p>
             </div>
             <div className="space-y-6">
               <div>
-                <Label className="text-base font-medium mb-4 block">Gewünschte Timeline</Label>
+                <Label className="text-base font-medium mb-4 block">
+                  Gewünschte Timeline
+                </Label>
                 <RadioGroup
                   value={formData.timeline}
-                  onValueChange={(value) => setFormData((prev) => ({ ...prev, timeline: value }))}
+                  onValueChange={(value) =>
+                    setFormData((prev) => ({ ...prev, timeline: value }))
+                  }
                   className="space-y-3"
                 >
                   <div className="flex items-center space-x-2">
@@ -362,10 +454,14 @@ export default function Fragebogen() {
               </div>
 
               <div>
-                <Label className="text-base font-medium mb-4 block">Budget-Rahmen</Label>
+                <Label className="text-base font-medium mb-4 block">
+                  Budget-Rahmen
+                </Label>
                 <RadioGroup
                   value={formData.budget}
-                  onValueChange={(value) => setFormData((prev) => ({ ...prev, budget: value }))}
+                  onValueChange={(value) =>
+                    setFormData((prev) => ({ ...prev, budget: value }))
+                  }
                   className="space-y-3"
                 >
                   <div className="flex items-center space-x-2">
@@ -402,10 +498,14 @@ export default function Fragebogen() {
               </div>
 
               <div>
-                <Label className="text-base font-medium mb-4 block">Laufende Betreuung gewünscht?</Label>
+                <Label className="text-base font-medium mb-4 block">
+                  Laufende Betreuung gewünscht?
+                </Label>
                 <RadioGroup
                   value={formData.maintenance}
-                  onValueChange={(value) => setFormData((prev) => ({ ...prev, maintenance: value }))}
+                  onValueChange={(value) =>
+                    setFormData((prev) => ({ ...prev, maintenance: value }))
+                  }
                   className="space-y-3"
                 >
                   <div className="flex items-center space-x-2">
@@ -422,7 +522,10 @@ export default function Fragebogen() {
                   </div>
                   <div className="flex items-center space-x-2">
                     <RadioGroupItem value="maybe" id="maintenance-maybe" />
-                    <Label htmlFor="maintenance-maybe" className="cursor-pointer">
+                    <Label
+                      htmlFor="maintenance-maybe"
+                      className="cursor-pointer"
+                    >
                       Eventuell, je nach Angebot
                     </Label>
                   </div>
@@ -430,14 +533,16 @@ export default function Fragebogen() {
               </div>
             </div>
           </div>
-        )
+        );
 
       case 7:
         return (
           <div className="space-y-6">
             <div className="text-center space-y-2">
               <h2 className="text-2xl font-bold">Ihre Kontaktdaten</h2>
-              <p className="text-muted-foreground">Damit wir Ihnen ein individuelles Angebot erstellen können</p>
+              <p className="text-muted-foreground">
+                Damit wir Ihnen ein individuelles Angebot erstellen können
+              </p>
             </div>
             <form onSubmit={handleSubmit} className="space-y-4">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -446,7 +551,9 @@ export default function Fragebogen() {
                   <Input
                     id="name"
                     value={formData.name}
-                    onChange={(e) => setFormData((prev) => ({ ...prev, name: e.target.value }))}
+                    onChange={(e) =>
+                      setFormData((prev) => ({ ...prev, name: e.target.value }))
+                    }
                     required
                   />
                 </div>
@@ -455,7 +562,12 @@ export default function Fragebogen() {
                   <Input
                     id="company"
                     value={formData.company}
-                    onChange={(e) => setFormData((prev) => ({ ...prev, company: e.target.value }))}
+                    onChange={(e) =>
+                      setFormData((prev) => ({
+                        ...prev,
+                        company: e.target.value,
+                      }))
+                    }
                   />
                 </div>
               </div>
@@ -466,7 +578,12 @@ export default function Fragebogen() {
                     id="email"
                     type="email"
                     value={formData.email}
-                    onChange={(e) => setFormData((prev) => ({ ...prev, email: e.target.value }))}
+                    onChange={(e) =>
+                      setFormData((prev) => ({
+                        ...prev,
+                        email: e.target.value,
+                      }))
+                    }
                     required
                   />
                 </div>
@@ -476,7 +593,12 @@ export default function Fragebogen() {
                     id="phone"
                     type="tel"
                     value={formData.phone}
-                    onChange={(e) => setFormData((prev) => ({ ...prev, phone: e.target.value }))}
+                    onChange={(e) =>
+                      setFormData((prev) => ({
+                        ...prev,
+                        phone: e.target.value,
+                      }))
+                    }
                   />
                 </div>
               </div>
@@ -486,7 +608,12 @@ export default function Fragebogen() {
                   id="message"
                   placeholder="Beschreiben Sie Ihr Projekt genauer, besondere Wünsche, Referenzen..."
                   value={formData.message}
-                  onChange={(e) => setFormData((prev) => ({ ...prev, message: e.target.value }))}
+                  onChange={(e) =>
+                    setFormData((prev) => ({
+                      ...prev,
+                      message: e.target.value,
+                    }))
+                  }
                   rows={4}
                 />
               </div>
@@ -496,61 +623,63 @@ export default function Fragebogen() {
               </Button>
             </form>
           </div>
-        )
+        );
 
       default:
-        return null
+        return null;
     }
-  }
+  };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 py-8 px-4">
-      <div className="max-w-2xl mx-auto">
-        <Card className="shadow-xl">
-          <CardHeader className="text-center">
-            <div className="mb-4">
-              <Progress value={progress} className="w-full" />
-              <p className="text-sm text-muted-foreground mt-2">
-                Schritt {currentStep} von {totalSteps}
-              </p>
-            </div>
-            <CardTitle className="text-3xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
-              Projekt-Anfrage
-            </CardTitle>
-            <CardDescription>Lassen Sie uns gemeinsam Ihr perfektes Web-Projekt planen</CardDescription>
-          </CardHeader>
-          <CardContent>
-            {renderStep()}
+    <Card className="shadow-xl">
+      <CardHeader className="text-center">
+        <div className="mb-4">
+          <Progress value={progress} className="w-full" />
+          <p className="text-sm text-muted-foreground mt-2">
+            Schritt {currentStep} von {totalSteps}
+          </p>
+        </div>
+        <CardTitle className="text-3xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
+          Projekt-Anfrage
+        </CardTitle>
+        <CardDescription>
+          Lassen Sie uns gemeinsam Ihr perfektes Web-Projekt planen
+        </CardDescription>
+      </CardHeader>
+      <CardContent>
+        {renderStep()}
 
-            {currentStep < 7 && (
-              <div className="flex justify-between mt-8 pt-6 border-t">
-                <Button variant="outline" onClick={handlePrevious} disabled={currentStep === 1}>
-                  <ArrowLeft className="mr-2 h-4 w-4" />
-                  Zurück
+        {currentStep < 7 && (
+          <div className="flex justify-between mt-8 pt-6 border-t">
+            <Button
+              variant="outline"
+              onClick={handlePrevious}
+              disabled={currentStep === 1}
+            >
+              <ArrowLeft className="mr-2 h-4 w-4" />
+              Zurück
+            </Button>
+            <div className="flex gap-2">
+              {currentStep > 2 && (
+                <Button variant="ghost" onClick={handleSkip}>
+                  Überspringen
                 </Button>
-                <div className="flex gap-2">
-                  {currentStep > 2 && (
-                    <Button variant="ghost" onClick={handleSkip}>
-                      Überspringen
-                    </Button>
-                  )}
-                  <Button
-                    onClick={handleNext}
-                    // disabled={
-                    //   (currentStep === 1 && !formData.projectType) ||
-                    //   (currentStep === 2 && !formData.websiteStatus) ||
-                    //   (currentStep === 3 && !formData.businessStatus)
-                    // }
-                  >
-                    Weiter
-                    <ArrowRight className="ml-2 h-4 w-4" />
-                  </Button>
-                </div>
-              </div>
-            )}
-          </CardContent>
-        </Card>
-      </div>
-    </div>
-  )
+              )}
+              <Button
+                onClick={handleNext}
+                // disabled={
+                //   (currentStep === 1 && !formData.projectType) ||
+                //   (currentStep === 2 && !formData.websiteStatus) ||
+                //   (currentStep === 3 && !formData.businessStatus)
+                // }
+              >
+                Weiter
+                <ArrowRight className="ml-2 h-4 w-4" />
+              </Button>
+            </div>
+          </div>
+        )}
+      </CardContent>
+    </Card>
+  );
 }
